@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Editor</h2>
+  <form method="post" action="{{ url_for('electrostatic.save') }}" id="contentForm">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <p><textarea name="text" rows="30" cols="80" tabindex="1">{{ rawText }}</textarea></p>
+
+    <p>
+    {% if isDraft %}
+      <input type="hidden" name="wasDraft" value="yes">
+      <input name="save" type="submit" tabindex="5" value="Save"> <input name="preview" type="submit" tabindex="3" value="Preview">
+      <input name="draft" id="draft" type="checkbox" checked="checked" tabindex="4"> <label for="draft">Save as draft</label>
+    {% else %}
+      <input type="hidden" name="wasDraft" value="no">
+      <input name="save" type="submit" tabindex="5" value="Publish"> <input name="preview" type="submit" tabindex="3" value="Preview">
+    {% endif %}
+    </p>
+  </form>
+{% endblock %}
