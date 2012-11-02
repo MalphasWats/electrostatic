@@ -9,3 +9,4 @@ blueprint.config = app.config['ELECTROSTATIC']
 import electrostatic.core
 
 LABEL = 'Electrostatic'
+ICON = 'pencil'
