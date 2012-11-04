@@ -276,8 +276,6 @@ def rebuild_archive_indexes():
         return
         
     template_env = jinja2.Environment(loader=jinja2.FileSystemLoader(blueprint.config['SITE_TEMPLATES_DIR']))
-    template_env.globals['sorted'] = sorted
-    template_env.globals['len'] = len
     template = template_env.get_template('archive.html')
     
     archiveYears = []
