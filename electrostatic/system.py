@@ -252,13 +252,13 @@ def create_article_from_template(rawText, title, filename, author):
 
 
 
-def rebuild_articles():
+def rebuild_articles(author):
     path = os.path.join(blueprint.config['SITE_ROOT_DIR'], 'articles', '*.txt')
     articles = glob(path)
     for article in articles:
         elem = get_article_elements(os.path.split(article)[1])
         try: 
-            create_article_from_template(elem['rawText'], elem['title'], elem['filename'][:-4])
+            create_article_from_template(elem['rawText'], elem['title'], elem['filename'][:-4], author)
         except:
             pass
 

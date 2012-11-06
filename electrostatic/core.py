@@ -103,7 +103,7 @@ def delete_draft(filename):
 def rebuild_site():
     #TODO: This is not multi-user friendly!!
     author = "%s %s" % (session['user']['forename'], session['user']['surname'])
-    system.rebuild_articles()
+    system.rebuild_articles(author)
     system.rebuild_archive_indexes()
     system.rebuild_homepage(author)
     flash('Site rebuilt', category='info')
