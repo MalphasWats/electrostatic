@@ -174,12 +174,12 @@ def delete_draft(filename):
 
     
 def get_title_elements(rawText):
-    title = rawText.splitlines()[0][1:]
+    title = rawText.splitlines()[0][1:].strip()
     if title[0] == '[':
         title = title.split('](')
-        return (title[0][1:].strip(), title[1][:-1])
+        return (title[0][1:], title[1][:-1])
     else:
-        return (title.strip(), '')
+        return (title, '')
 
 def get_body_text(rawText):
     lines = rawText.splitlines()
