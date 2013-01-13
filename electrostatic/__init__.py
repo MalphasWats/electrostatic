@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 blueprint = Blueprint('electrostatic', __name__, template_folder='templates', static_folder='static')
 from instruments import app
@@ -10,3 +10,6 @@ import electrostatic.core
 
 LABEL = 'Electrostatic'
 ICON = 'pencil'
+
+def get_admin_panel():
+    return render_template('electrostatic_admin_panel.html')
