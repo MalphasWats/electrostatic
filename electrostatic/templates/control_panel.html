@@ -35,7 +35,7 @@ text</textarea></p>
   <dl  id="articleList">
   {% for article in articles %}
     <dt><a href="{{ url_for('electrostatic.edit', filename=article.filename) }}">{{ article.title }}</a></dt>
-    <dd>{{ article.pubDate[1] }} <a href="{{url_for('electrostatic.delete_article', filename=article.filename)}}" onclick="return confirmDelete('{{article.title}}');">delete</a></dd>
+    <dd>{{ article.pubDate[1] }} <a href="{{url_for('electrostatic.delete_article', filename=article.filename)}}" onclick="return confirm_delete('{{article.title}}');">delete</a></dd>
   {% else %}
     <dt><em>No Articles</em></dt>
   {% endfor %}
@@ -44,7 +44,7 @@ text</textarea></p>
   <dl id="draftList">
   {% for draft in drafts %}
     <dt><a href="{{ url_for('electrostatic.draft', filename=draft.filename) }}">{{ draft.title }}</a></dt>
-    <dd>{{draft.snippet}} <a href="{{url_for('electrostatic.delete_draft', filename=draft.filename)}}" onclick="return confirmDelete('{{draft.title}}')">delete</a></dd>
+    <dd>{{draft.snippet}} <a href="{{url_for('electrostatic.delete_draft', filename=draft.filename)}}" onclick="return confirm_delete('{{draft.title}}')">delete</a></dd>
   {% else %}
     <dt><em>No Drafts</em></dt>
   {% endfor %}
